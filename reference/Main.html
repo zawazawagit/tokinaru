@@ -1,0 +1,1243 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>トキナル｜トップページ</title>
+
+<link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+html{overflow-x:hidden}
+body{margin:0;background:#FCFAF6;overflow-x:hidden}
+a{color:#65452F}a:hover{color:#342D26}
+.pc-view{display:block}
+.sp-view{display:none}
+.hero-bg{background-image:linear-gradient(90deg,rgba(28,20,14,.72) 0%,rgba(28,20,14,.4) 50%,rgba(28,20,14,.1) 100%),url(tmp_images/tmp_interior.jpg);background-size:cover;background-position:center}
+.about-img{background-image:linear-gradient(90deg,#FCFAF6 0%,rgba(252,250,246,0) 22%),url(tmp_images/tmp_interior2.jpg);background-size:cover;background-position:center}
+.cta-bg{background-image:linear-gradient(90deg,rgba(30,22,16,.85) 0%,rgba(30,22,16,.5) 55%,rgba(30,22,16,.35) 100%),url(tmp_images/tmp_toast.jpg);background-size:cover;background-position:center}
+.sp-view .hero-bg{background-image:linear-gradient(180deg,rgba(28,20,14,.55) 0%,rgba(28,20,14,.35) 45%,rgba(28,20,14,.75) 100%),url(tmp_images/tmp_interior.jpg)}
+.sp-view .cta-bg{background-image:linear-gradient(180deg,rgba(30,22,16,.6) 0%,rgba(30,22,16,.85) 100%),url(tmp_images/tmp_toast.jpg)}
+.card-link{text-decoration:none;color:inherit}
+.card-link:hover img{transform:scale(1.04)}
+.field select,.field input{appearance:none;-webkit-appearance:none}
+.hscroll{scrollbar-width:none}.hscroll::-webkit-scrollbar{display:none}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.is-visible{opacity:1;transform:none}
+
+/* Card hover lift */
+.shop-card{transition:transform .3s ease,box-shadow .3s ease}
+.shop-card:hover{transform:translateY(-5px);box-shadow:0 14px 32px rgba(52,45,38,.16)}
+
+/* Button / link hover lift */
+.btn-lift{transition:transform .22s ease,box-shadow .22s ease,filter .22s ease}
+.btn-lift:hover{transform:translateY(-2px);filter:brightness(1.04)}
+.btn-lift:active{transform:translateY(0)}
+
+/* Favorite button pop */
+.fav-btn{transition:transform .2s ease}
+.fav-btn:hover{transform:scale(1.15)}
+.fav-btn:active{transform:scale(.92)}
+
+/* Carousel nav buttons */
+.carousel-nav-btn{transition:transform .2s ease,background-color .2s ease}
+.carousel-nav-btn:hover{transform:scale(1.08);background:rgba(40,28,20,.55)}
+
+/* Hero carousel content crossfade */
+.js-hero-carousel [data-role]{transition:opacity .22s ease}
+
+/* FAQ custom chevron */
+summary{list-style:none;cursor:pointer;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:2px;top:50%;width:7px;height:7px;border-right:2px solid #6B5D50;border-bottom:2px solid #6B5D50;transform:translateY(-65%) rotate(45deg);transition:transform .3s ease}
+details[open] summary::after{transform:translateY(-35%) rotate(225deg)}
+
+/* Mobile menu transition */
+#spMenuNav{opacity:0;transform:translateY(-10px);pointer-events:none;transition:opacity .25s ease,transform .25s ease}
+#spMenuNav.is-open{opacity:1;transform:translateY(0);pointer-events:auto}
+
+@media (prefers-reduced-motion: reduce){
+.reveal{opacity:1;transform:none;transition:none}
+.shop-card,.btn-lift,.fav-btn,.carousel-nav-btn,#spMenuNav{transition:none}
+}
+@keyframes chatUser{0%{opacity:0;transform:translateY(8px)}4%{opacity:1;transform:translateY(0)}93%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(8px)}}
+@keyframes chatAiRow{0%{opacity:0}12%{opacity:0}16%{opacity:1}93%{opacity:1}100%{opacity:0}}
+@keyframes chatTyping{0%{opacity:0}16%{opacity:0}20%{opacity:1}44%{opacity:1}48%{opacity:0}100%{opacity:0}}
+@keyframes chatMessage{0%{opacity:0;transform:translateY(4px)}48%{opacity:0;transform:translateY(4px)}52%{opacity:1;transform:translateY(0)}93%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(4px)}}
+@keyframes dotBounce{0%{transform:translateY(0)}30%{transform:translateY(-4px)}60%{transform:translateY(0)}100%{transform:translateY(0)}}
+.chat-user{animation:chatUser 9s ease-in-out infinite}
+.chat-ai-row{animation:chatAiRow 9s ease-in-out infinite}
+.chat-stack{display:grid}
+.chat-stack>*{grid-area:1/1}
+.chat-typing{animation:chatTyping 9s ease-in-out infinite}
+.chat-message{animation:chatMessage 9s ease-in-out infinite}
+.chat-dot{animation:dotBounce 1s ease-in-out infinite}
+.chat-dot:nth-child(2){animation-delay:.15s}
+.chat-dot:nth-child(3){animation-delay:.3s}
+@media (prefers-reduced-motion: reduce){.chat-user,.chat-ai-row,.chat-typing,.chat-message,.chat-dot{animation:none;opacity:1;transform:none}}
+@media (max-width: 899px){
+.pc-view{display:none}
+.sp-view{display:block}
+}
+</style>
+
+</head>
+<body>
+
+
+<div class="pc-view">
+<div style="font-family: 'Noto Sans JP', sans-serif; color: #342D26; background: #FCFAF6; width: 100%; min-width: 0">
+
+<!-- Header -->
+<header style="background: #FCFAF6; border-bottom: 1px solid #EEE5D8">
+<div style="max-width: 1280px; margin: 0 auto; padding: 12px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px">
+<a href="Main.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #342D26">
+<svg width="36" height="22" viewBox="0 0 34 22" fill="none" aria-hidden="true"><path d="M2 18h30M5 18c2-6 7-11 12-14 5 3 10 8 12 14M17 4v14M10 18c1.5-4 4-7 7-9 3 2 5.5 5 7 9" stroke="#996735" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<span style="font-family: 'Shippori Mincho', serif; font-size: 26px; font-weight: 600; letter-spacing: 0.12em">トキナル</span>
+</a>
+<form role="search" aria-label="クイック検索" style="flex: 1 1 240px; max-width: 360px; position: relative">
+<label for="hq" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">エリア・ジャンル・シーンで探す</label>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B5D50" stroke-width="1.8" aria-hidden="true" style="position: absolute; left: 14px; top: 12px"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+<input id="hq" type="search" placeholder="エリア・ジャンル・シーンで探す" style="width: 100%; height: 40px; border: 1px solid #E2D6C4; border-radius: 999px; background: #F6F1EA; padding: 0 16px 0 38px; font: inherit; font-size: 13px; color: #342D26; box-sizing: border-box">
+</form>
+<nav aria-label="メインメニュー" style="display: flex; flex-wrap: wrap; gap: 24px; font-size: 13px">
+<a href="#scene" style="text-decoration: none; color: #342D26">特別な日から探す</a>
+<a href="#shops" style="text-decoration: none; color: #342D26">エリアから探す</a>
+<a href="#flow" style="text-decoration: none; color: #342D26">ご利用ガイド</a>
+</nav>
+<div style="margin-left: auto; display: flex; align-items: center; gap: 4px; font-size: 11px">
+<a href="#" style="width: 56px; min-height: 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; color: #342D26">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>お気に入り</a>
+<a href="#" style="width: 56px; min-height: 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; color: #342D26">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>閲覧履歴</a>
+<a href="#" class="btn-lift" style="margin-left: 8px; display: inline-flex; align-items: center; min-height: 38px; padding: 0 18px; border: 1px solid #342D26; border-radius: 999px; text-decoration: none; color: #342D26; font-size: 13px; font-weight: 500">ログイン</a>
+<a href="#" class="btn-lift" style="display: inline-flex; align-items: center; min-height: 38px; padding: 0 18px; border-radius: 999px; background: #65452F; text-decoration: none; color: #FCFAF6; font-size: 13px; font-weight: 700">会員登録</a>
+</div>
+</div>
+</header>
+
+<!-- Hero -->
+<section class="hero-bg">
+<div style="max-width: 1280px; margin: 0 auto; padding: 56px 32px 120px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px">
+<div style="flex: 1 1 480px; display: flex; flex-direction: column; gap: 24px">
+<h1 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: clamp(36px, 5vw, 64px); line-height: 1.35; color: #FCFAF6; letter-spacing: 0.06em">大切な日の一軒を、<br>迷いから確信へ。</h1>
+<p style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 18px; line-height: 1.9; color: #F3ECE2; font-weight: 500">記念日も、旅先のディナーも。<br>あなたにぴったりのお店を、一緒に見つけます。</p>
+</div>
+<div class="js-hero-carousel" data-dot-active="22" data-dot-inactive="8" role="region" aria-roledescription="カルーセル" aria-label="特集" style="flex: 0 1 440px; position: relative; height: 480px; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,.35); border: 1px solid rgba(252,250,246,.25); background: #342D26">
+<img data-role="image" src="tmp_images/tmp_toast.jpg" alt="グラスで乾杯するふたり" style="width: 100%; height: 100%; object-fit: cover; display: block">
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,20,14,.1) 0%, rgba(28,20,14,.25) 40%, rgba(28,20,14,.9) 100%)"></div>
+<span data-role="counter" style="position: absolute; left: 20px; top: 18px; font-size: 11px; letter-spacing: 0.2em; color: #FCFAF6">FEATURE　01 / 03</span>
+<div style="position: absolute; left: 24px; right: 24px; bottom: 18px; display: flex; flex-direction: column; gap: 10px; color: #FCFAF6">
+<span data-role="badge" style="align-self: flex-start; font-size: 11px; font-weight: 700; color: #342D26; background: rgba(252,250,246,.92); padding: 5px 12px; border-radius: 999px">記念日・誕生日特集</span>
+<p data-role="headline" style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 23px; font-weight: 600; line-height: 1.5; white-space: pre-line">保存30件、でも予約は0件。
+その記念日、もう迷わせない。</p>
+<p data-role="desc" style="margin: 0; font-size: 13px; line-height: 1.7; color: #EEE5D8">記念日に訪れたカップルの声をもとに、編集部が厳選した店舗だけを掲載。</p>
+<a href="Concierge.html" style="align-self: flex-start; font-size: 13px; font-weight: 700; color: #FCFAF6; border-bottom: 1px solid #FCFAF6; padding-bottom: 2px; text-decoration: none">特集を見る ›</a>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 4px">
+<div style="display: flex; gap: 2px">
+
+<button type="button" data-role="dot" data-index="0" aria-label="記念日・誕生日特集を表示" aria-pressed="true" style="width: 32px; height: 32px; border: 0; background: none; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer"><span style="display: block; width: 22px; height: 4px; border-radius: 2px; background: #FCFAF6"></span></button>
+
+<button type="button" data-role="dot" data-index="1" aria-label="旅先ディナー特集を表示" aria-pressed="false" style="width: 32px; height: 32px; border: 0; background: none; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer"><span style="display: block; width: 8px; height: 4px; border-radius: 2px; background: rgba(252,250,246,.5)"></span></button>
+
+<button type="button" data-role="dot" data-index="2" aria-label="デート特集を表示" aria-pressed="false" style="width: 32px; height: 32px; border: 0; background: none; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer"><span style="display: block; width: 8px; height: 4px; border-radius: 2px; background: rgba(252,250,246,.5)"></span></button>
+
+</div>
+<div style="display: flex; gap: 8px">
+<button type="button" data-role="prev" class="carousel-nav-btn" aria-label="前の特集" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(252,250,246,.7); background: rgba(40,28,20,.35); color: #FCFAF6; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
+<button type="button" data-role="next" class="carousel-nav-btn" aria-label="次の特集" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(252,250,246,.7); background: rgba(40,28,20,.35); color: #FCFAF6; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Search -->
+<section style="position: relative; margin-top: -72px; padding: 0 32px">
+<form aria-label="お店を検索" style="max-width: 1216px; margin: 0 auto; background: #FFFFFF; border-radius: 14px; box-shadow: 0 12px 40px rgba(52,45,38,.14); padding: 20px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; align-items: end">
+<div class="field" style="display: flex; flex-direction: column; gap: 8px">
+<label for="area" style="font-size: 12px; font-weight: 700; color: #342D26">エリア</label>
+<div style="position: relative">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B5D50" stroke-width="1.8" aria-hidden="true" style="position: absolute; left: 12px; top: 16px"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+<select id="area" style="width: 100%; height: 48px; border: 0; border-radius: 8px; background: #F6F1EA; padding: 0 14px 0 36px; font: inherit; font-size: 14px; color: #5E5145"><option>エリア・駅名</option><option>銀座</option><option>表参道</option><option>みなとみらい</option><option>京都・祇園</option></select>
+</div>
+</div>
+<div class="field" style="display: flex; flex-direction: column; gap: 8px">
+<label for="kw" style="font-size: 12px; font-weight: 700; color: #342D26">キーワード</label>
+<div style="position: relative">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B5D50" stroke-width="1.8" aria-hidden="true" style="position: absolute; left: 12px; top: 16px"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+<input id="kw" type="text" placeholder="記念日・個室など" style="width: 100%; height: 48px; border: 0; border-radius: 8px; background: #F6F1EA; padding: 0 14px 0 36px; font: inherit; font-size: 14px; color: #342D26; box-sizing: border-box">
+</div>
+</div>
+<div class="field" style="display: flex; flex-direction: column; gap: 8px">
+<label for="date" style="font-size: 12px; font-weight: 700; color: #342D26">日付</label>
+<div style="position: relative">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B5D50" stroke-width="1.8" aria-hidden="true" style="position: absolute; left: 12px; top: 16px"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+<select id="date" style="width: 100%; height: 48px; border: 0; border-radius: 8px; background: #F6F1EA; padding: 0 14px 0 36px; font: inherit; font-size: 14px; color: #5E5145"><option>日付を選択</option><option>今日</option><option>明日</option><option>今週末</option></select>
+</div>
+</div>
+<div class="field" style="display: flex; flex-direction: column; gap: 8px">
+<label for="time" style="font-size: 12px; font-weight: 700; color: #342D26">時間</label>
+<div style="position: relative">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B5D50" stroke-width="1.8" aria-hidden="true" style="position: absolute; left: 12px; top: 16px"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+<select id="time" style="width: 100%; height: 48px; border: 0; border-radius: 8px; background: #F6F1EA; padding: 0 14px 0 36px; font: inherit; font-size: 14px; color: #5E5145"><option>時間を選択</option><option>17:30</option><option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option></select>
+</div>
+</div>
+<div class="field" style="display: flex; flex-direction: column; gap: 8px">
+<label for="ppl" style="font-size: 12px; font-weight: 700; color: #342D26">人数</label>
+<div style="position: relative">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B5D50" stroke-width="1.8" aria-hidden="true" style="position: absolute; left: 12px; top: 16px"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/></svg>
+<select id="ppl" style="width: 100%; height: 48px; border: 0; border-radius: 8px; background: #F6F1EA; padding: 0 14px 0 36px; font: inherit; font-size: 14px; color: #342D26"><option>2名</option><option>1名</option><option>3名</option><option>4名</option><option>5名以上</option></select>
+</div>
+</div>
+<button type="button" class="btn-lift" style="height: 48px; border: 0; border-radius: 8px; background: #7A5232; color: #FCFAF6; font: inherit; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>検索する</button>
+</form>
+
+<!-- AI banner -->
+<div style="max-width: 1216px; margin: 20px auto 0; background: #F1E8DC; border-radius: 12px; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-wrap: nowrap; align-items: center; gap: 14px; white-space: nowrap">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#65452F" stroke-width="1.4" aria-hidden="true" style="flex: none"><path d="M4 5h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><circle cx="7" cy="10.5" r=".8" fill="#65452F"/><circle cx="10" cy="10.5" r=".8" fill="#65452F"/><circle cx="13" cy="10.5" r=".8" fill="#65452F"/><path d="M21 2v3M19.5 3.5h3M21.5 8v2M20.5 9h2"/></svg>
+<p style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 20px; font-weight: 600; color: #342D26">迷ったら、AIに相談。</p>
+<span style="width: 1px; height: 20px; background: #C9B497; flex: none" aria-hidden="true"></span>
+<p style="margin: 0; font-size: 13px; color: #5E5145">好みや予算を伝えて、ぴったりの一軒へ。</p>
+</div>
+<a href="Concierge.html" class="btn-lift" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 20px; border-radius: 8px; background: #5A3C26; color: #FCFAF6; text-decoration: none; font-weight: 700; font-size: 14px; flex: none">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>一緒にお店を探す
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+</div>
+</section>
+
+<!-- Scenes -->
+<section id="scene" style="max-width: 1280px; margin: 0 auto; padding: 80px 32px 0">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 0.25em; color: #996735"><span style="width: 32px; height: 1px; background: #996735" aria-hidden="true"></span>SPECIAL SCENE</p>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 20px">
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 34px; font-weight: 600; letter-spacing: 0.04em">特別な時間から、探す</h2>
+<p style="margin: 0; font-size: 13px; color: #5E5145">大切な日を、もっと特別に。シーンに合わせたお店をご紹介します。</p>
+</div>
+</div>
+<a href="#shops" style="font-size: 13px; font-weight: 700; color: #342D26; border-bottom: 1px solid #342D26; padding-bottom: 4px; text-decoration: none">すべて見る ›</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+
+<a href="Concierge.html" class="card-link reveal" style="position: relative; display: block; border-radius: 10px; overflow: hidden; aspect-ratio: 16 / 9; background: #342D26">
+<img src="tmp_images/tmp_toast.jpg" alt="グラスで乾杯するふたり" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s">
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,20,14,.15) 0%, rgba(28,20,14,.35) 40%, rgba(28,20,14,.88) 100%)"></div>
+<span style="position: absolute; left: 18px; top: 16px; font-size: 11px; font-weight: 700; color: #342D26; background: rgba(252,250,246,.92); padding: 5px 12px; border-radius: 999px">ANNIVERSARY</span>
+<div style="position: absolute; left: 20px; right: 20px; bottom: 18px; display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; color: #FCFAF6">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 22px; font-weight: 600; line-height: 1.5">記念日・誕生日</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.7; color: #EEE5D8">大切な人と、忘れられない一日を。</p>
+</div>
+<span style="flex: none; width: 36px; height: 36px; border-radius: 50%; border: 1px solid #FCFAF6; display: flex; align-items: center; justify-content: center" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FCFAF6" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></span>
+</div>
+</a>
+
+<a href="Concierge.html" class="card-link reveal" style="position: relative; display: block; border-radius: 10px; overflow: hidden; aspect-ratio: 16 / 9; background: #342D26">
+<img src="tmp_images/tmp_dish.jpg" alt="シェフが料理にソースをかける手元" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s">
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,20,14,.15) 0%, rgba(28,20,14,.35) 40%, rgba(28,20,14,.88) 100%)"></div>
+<span style="position: absolute; left: 18px; top: 16px; font-size: 11px; font-weight: 700; color: #342D26; background: rgba(252,250,246,.92); padding: 5px 12px; border-radius: 999px">TRAVEL</span>
+<div style="position: absolute; left: 20px; right: 20px; bottom: 18px; display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; color: #FCFAF6">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 22px; font-weight: 600; line-height: 1.5">旅先のディナー</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.7; color: #EEE5D8">その土地で出会う、特別な味わい。</p>
+</div>
+<span style="flex: none; width: 36px; height: 36px; border-radius: 50%; border: 1px solid #FCFAF6; display: flex; align-items: center; justify-content: center" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FCFAF6" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></span>
+</div>
+</a>
+
+<a href="Concierge.html" class="card-link reveal" style="position: relative; display: block; border-radius: 10px; overflow: hidden; aspect-ratio: 16 / 9; background: #342D26">
+<img src="tmp_images/tmp_interior2.jpg" alt="照明の落ち着いた店内" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s">
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,20,14,.15) 0%, rgba(28,20,14,.35) 40%, rgba(28,20,14,.88) 100%)"></div>
+<span style="position: absolute; left: 18px; top: 16px; font-size: 11px; font-weight: 700; color: #342D26; background: rgba(252,250,246,.92); padding: 5px 12px; border-radius: 999px">DATE</span>
+<div style="position: absolute; left: 20px; right: 20px; bottom: 18px; display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; color: #FCFAF6">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 22px; font-weight: 600; line-height: 1.5">ふたりのデート</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.7; color: #EEE5D8">心地よい雰囲気が、ふたりをもっと近づける。</p>
+</div>
+<span style="flex: none; width: 36px; height: 36px; border-radius: 50%; border: 1px solid #FCFAF6; display: flex; align-items: center; justify-content: center" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FCFAF6" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></span>
+</div>
+</a>
+
+</div>
+</section>
+
+<!-- Shops -->
+<section id="shops" style="max-width: 1280px; margin: 0 auto; padding: 72px 32px 0">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 0.25em; color: #996735"><span style="width: 32px; height: 1px; background: #996735" aria-hidden="true"></span>PICK UP</p>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 20px">
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 34px; font-weight: 600; letter-spacing: 0.04em">大切な日に選びたいお店</h2>
+<p style="margin: 0; font-size: 13px; color: #5E5145">特別なひとときにふさわしい、とっておきのお店をご紹介します。</p>
+</div>
+</div>
+<a href="#shops" style="font-size: 13px; font-weight: 700; color: #342D26; border-bottom: 1px solid #342D26; padding-bottom: 4px; text-decoration: none">すべて見る ›</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px">
+
+<div class="reveal shop-card" style="position: relative; background: #FFFFFF; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 18px rgba(52,45,38,.07)">
+<a href="Detail.html" class="card-link" style="display: flex; flex-direction: column">
+<div style="aspect-ratio: 4 / 3; overflow: hidden; background: #342D26">
+<img src="tmp_images/tmp_interior.jpg" alt="銀座 旬和の店内・料理イメージ" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s">
+</div>
+<div style="padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; align-items: center; gap: 6px; font-size: 12px">
+<span style="color: #B07A2E; letter-spacing: 1px" aria-hidden="true">★★★★★</span>
+<span style="font-weight: 700">4.6</span>
+<span style="color: #6B5D50">（128件）</span>
+</div>
+<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 19px; font-weight: 600">銀座 旬和</h3>
+<p style="margin: 0; font-size: 12px; line-height: 1.6; color: #5E5145">季節の会席を、静かな個室で。</p>
+<p style="margin: 0; display: flex; align-items: center; gap: 4px; font-size: 12px; color: #6B5D50">
+<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>銀座駅 徒歩3分</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px">
+
+<span style="font-size: 11px; color: #5E5145; background: #F3ECE2; padding: 4px 10px; border-radius: 999px">和食</span>
+
+<span style="font-size: 11px; color: #5E5145; background: #F3ECE2; padding: 4px 10px; border-radius: 999px">個室あり</span>
+
+</div>
+<dl style="margin: 8px 0 0; padding-top: 10px; border-top: 1px solid #EEE5D8; display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; font-size: 12px">
+<dt style="color: #6B5D50">ランチ</dt><dd style="margin: 0; font-weight: 500">¥6,000〜</dd>
+<dt style="color: #6B5D50">ディナー</dt><dd style="margin: 0; font-weight: 500">¥15,000〜</dd>
+</dl>
+</div>
+</a>
+<button type="button" class="fav-btn" aria-label="銀座 旬和をお気に入りに追加" style="position: absolute; right: 10px; top: 10px; width: 44px; height: 44px; border: 0; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FCFAF6" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+</div>
+
+<div class="reveal shop-card" style="position: relative; background: #FFFFFF; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 18px rgba(52,45,38,.07)">
+<a href="Detail.html" class="card-link" style="display: flex; flex-direction: column">
+<div style="aspect-ratio: 4 / 3; overflow: hidden; background: #342D26">
+<img src="tmp_images/tmp_dish.jpg" alt="青山ル・ボワの店内・料理イメージ" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s">
+</div>
+<div style="padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; align-items: center; gap: 6px; font-size: 12px">
+<span style="color: #B07A2E; letter-spacing: 1px" aria-hidden="true">★★★★☆</span>
+<span style="font-weight: 700">4.5</span>
+<span style="color: #6B5D50">（96件）</span>
+</div>
+<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 19px; font-weight: 600">青山ル・ボワ</h3>
+<p style="margin: 0; font-size: 12px; line-height: 1.6; color: #5E5145">記念日コースが人気の一軒家フレンチ。</p>
+<p style="margin: 0; display: flex; align-items: center; gap: 4px; font-size: 12px; color: #6B5D50">
+<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>表参道駅 徒歩5分</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px">
+
+<span style="font-size: 11px; color: #5E5145; background: #F3ECE2; padding: 4px 10px; border-radius: 999px">フレンチ</span>
+
+<span style="font-size: 11px; color: #5E5145; background: #F3ECE2; padding: 4px 10px; border-radius: 999px">記念日</span>
+
+</div>
+<dl style="margin: 8px 0 0; padding-top: 10px; border-top: 1px solid #EEE5D8; display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; font-size: 12px">
+<dt style="color: #6B5D50">ランチ</dt><dd style="margin: 0; font-weight: 500">¥4,500〜</dd>
+<dt style="color: #6B5D50">ディナー</dt><dd style="margin: 0; font-weight: 500">¥12,000〜</dd>
+</dl>
+</div>
+</a>
+<button type="button" class="fav-btn" aria-label="青山ル・ボワをお気に入りに追加" style="position: absolute; right: 10px; top: 10px; width: 44px; height: 44px; border: 0; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FCFAF6" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+</div>
+
+<div class="reveal shop-card" style="position: relative; background: #FFFFFF; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 18px rgba(52,45,38,.07)">
+<a href="Detail.html" class="card-link" style="display: flex; flex-direction: column">
+<div style="aspect-ratio: 4 / 3; overflow: hidden; background: #342D26">
+<img src="tmp_images/tmp_interior2.jpg" alt="朧月（ちょうげつ）の店内・料理イメージ" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s">
+</div>
+<div style="padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; align-items: center; gap: 6px; font-size: 12px">
+<span style="color: #B07A2E; letter-spacing: 1px" aria-hidden="true">★★★★☆</span>
+<span style="font-weight: 700">4.4</span>
+<span style="color: #6B5D50">（74件）</span>
+</div>
+<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 19px; font-weight: 600">朧月（ちょうげつ）</h3>
+<p style="margin: 0; font-size: 12px; line-height: 1.6; color: #5E5145">港の夜景を望む、窓際のテーブル。</p>
+<p style="margin: 0; display: flex; align-items: center; gap: 4px; font-size: 12px; color: #6B5D50">
+<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>みなとみらい駅 徒歩4分</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px">
+
+<span style="font-size: 11px; color: #5E5145; background: #F3ECE2; padding: 4px 10px; border-radius: 999px">イタリアン</span>
+
+<span style="font-size: 11px; color: #5E5145; background: #F3ECE2; padding: 4px 10px; border-radius: 999px">夜景</span>
+
+</div>
+<dl style="margin: 8px 0 0; padding-top: 10px; border-top: 1px solid #EEE5D8; display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; font-size: 12px">
+<dt style="color: #6B5D50">ランチ</dt><dd style="margin: 0; font-weight: 500">¥3,800〜</dd>
+<dt style="color: #6B5D50">ディナー</dt><dd style="margin: 0; font-weight: 500">¥10,000〜</dd>
+</dl>
+</div>
+</a>
+<button type="button" class="fav-btn" aria-label="朧月（ちょうげつ）をお気に入りに追加" style="position: absolute; right: 10px; top: 10px; width: 44px; height: 44px; border: 0; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FCFAF6" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+</div>
+
+<div class="reveal shop-card" style="position: relative; background: #FFFFFF; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 18px rgba(52,45,38,.07)">
+<a href="Detail.html" class="card-link" style="display: flex; flex-direction: column">
+<div style="aspect-ratio: 4 / 3; overflow: hidden; background: #342D26">
+<img src="tmp_images/tmp_toast.jpg" alt="京都 霞庭（かすみにわ）の店内・料理イメージ" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s">
+</div>
+<div style="padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; align-items: center; gap: 6px; font-size: 12px">
+<span style="color: #B07A2E; letter-spacing: 1px" aria-hidden="true">★★★★★</span>
+<span style="font-weight: 700">4.7</span>
+<span style="color: #6B5D50">（152件）</span>
+</div>
+<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 19px; font-weight: 600">京都 霞庭（かすみにわ）</h3>
+<p style="margin: 0; font-size: 12px; line-height: 1.6; color: #5E5145">庭を眺める座敷で、京の懐石を。</p>
+<p style="margin: 0; display: flex; align-items: center; gap: 4px; font-size: 12px; color: #6B5D50">
+<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>祇園四条駅 徒歩6分</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px">
+
+<span style="font-size: 11px; color: #5E5145; background: #F3ECE2; padding: 4px 10px; border-radius: 999px">懐石・会席</span>
+
+<span style="font-size: 11px; color: #5E5145; background: #F3ECE2; padding: 4px 10px; border-radius: 999px">個室あり</span>
+
+</div>
+<dl style="margin: 8px 0 0; padding-top: 10px; border-top: 1px solid #EEE5D8; display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; font-size: 12px">
+<dt style="color: #6B5D50">ランチ</dt><dd style="margin: 0; font-weight: 500">¥8,000〜</dd>
+<dt style="color: #6B5D50">ディナー</dt><dd style="margin: 0; font-weight: 500">¥18,000〜</dd>
+</dl>
+</div>
+</a>
+<button type="button" class="fav-btn" aria-label="京都 霞庭（かすみにわ）をお気に入りに追加" style="position: absolute; right: 10px; top: 10px; width: 44px; height: 44px; border: 0; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FCFAF6" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+</div>
+
+</div>
+<p style="margin: 12px 0 0; font-size: 11px; color: #6B5D50">※ 店舗名・価格・評価は画面デザイン用のサンプルです</p>
+</section>
+
+<!-- About -->
+<section style="margin-top: 72px; background: #F8F3EC">
+<div style="max-width: 1440px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: stretch">
+<div style="flex: 1 1 420px; padding: 56px 32px 56px max(32px, calc((100% - 1280px) / 2 + 32px)); display: flex; flex-direction: column; justify-content: center; gap: 20px">
+<p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 0.25em; color: #996735"><span style="width: 32px; height: 1px; background: #996735" aria-hidden="true"></span>ABOUT</p>
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 38px; font-weight: 600; line-height: 1.5">お店の空気感まで、<br>予約の前に。</h2>
+<p style="margin: 0; font-size: 14px; line-height: 2; color: #5E5145">写真・雰囲気・体験談から、<br>お店のリアルな魅力を知ることができます。<br>大切な日だからこそ、安心して選べるように。</p>
+</div>
+<div class="about-img" style="flex: 1.4 1 520px; min-height: 380px"></div>
+</div>
+<div style="max-width: 1280px; margin: 0 auto; padding: 0 32px 64px">
+<div style="margin-top: -40px; position: relative; background: #FFFFFF; border-radius: 16px; box-shadow: 0 8px 30px rgba(52,45,38,.08); padding: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px">
+
+<div class="reveal" style="display: flex; gap: 18px; align-items: center; padding: 8px 12px">
+<span style="flex: none; width: 56px; height: 56px; border-radius: 50%; background: #F3ECE2; display: flex; align-items: center; justify-content: center" aria-hidden="true">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#65452F" stroke-width="1.6"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
+
+
+</span>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<p style="margin: 0; font-weight: 700; font-size: 15px">照明・席間・BGMがわかる</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.8; color: #5E5145">写真じゃ伝わらない情報を「雰囲気タグ」で確認できます。</p>
+</div>
+</div>
+
+<div class="reveal" style="display: flex; gap: 18px; align-items: center; padding: 8px 12px">
+<span style="flex: none; width: 56px; height: 56px; border-radius: 50%; background: #F3ECE2; display: flex; align-items: center; justify-content: center" aria-hidden="true">
+
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#65452F" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
+
+</span>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<p style="margin: 0; font-weight: 700; font-size: 15px">同じシーンの体験談が読める</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.8; color: #5E5145">実際に訪れた人の感想から、利用シーンのイメージが膨らみます。</p>
+</div>
+</div>
+
+<div class="reveal" style="display: flex; gap: 18px; align-items: center; padding: 8px 12px">
+<span style="flex: none; width: 56px; height: 56px; border-radius: 50%; background: #F3ECE2; display: flex; align-items: center; justify-content: center" aria-hidden="true">
+
+
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#65452F" stroke-width="1.6"><path d="M4 5h16v11H9l-5 4z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01" stroke-width="2.4" stroke-linecap="round"/></svg>
+</span>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<p style="margin: 0; font-weight: 700; font-size: 15px">好みを伝えて相談できる</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.8; color: #5E5145">AIに希望を伝えて、ぴったりの一軒を提案してもらえます。</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- AI concierge -->
+<section style="background: #F1E8DC">
+<div style="max-width: 1280px; margin: 0 auto; padding: 56px 32px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+<div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 20px">
+<p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 0.25em; color: #996735"><span style="width: 32px; height: 1px; background: #996735" aria-hidden="true"></span>AI CONCIERGE</p>
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 36px; font-weight: 600; line-height: 1.5">その迷い、一緒にほどきます。</h2>
+<p style="margin: 0; font-size: 14px; line-height: 1.9; color: #5E5145">トキナルのAIコンシェルジュが、あなたの大切な日に<br>ぴったりのお店探しをお手伝いします。</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<a href="Concierge.html" class="btn-lift" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; padding: 0 18px; border-radius: 999px; background: #FCFAF6; color: #342D26; text-decoration: none; box-shadow: 0 2px 8px rgba(52,45,38,.06)">記念日のお店を探したい</a>
+<a href="Concierge.html" class="btn-lift" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; padding: 0 18px; border-radius: 999px; background: #FCFAF6; color: #342D26; text-decoration: none; box-shadow: 0 2px 8px rgba(52,45,38,.06)">静かな個室がいい</a>
+<a href="Concierge.html" class="btn-lift" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; padding: 0 18px; border-radius: 999px; background: #FCFAF6; color: #342D26; text-decoration: none; box-shadow: 0 2px 8px rgba(52,45,38,.06)">予算から相談したい</a>
+</div>
+<a href="Concierge.html" class="btn-lift" style="display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 56px; border-radius: 10px; background: #5A3C26; color: #FCFAF6; text-decoration: none; font-weight: 700; font-size: 16px; max-width: 520px">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>AIに相談してみる
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+</div>
+<div style="flex: 1 1 400px; background: #FFFFFF; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 8px 30px rgba(52,45,38,.08)" aria-label="相談のイメージ">
+<div class="chat-user" style="align-self: flex-end; display: flex; flex-direction: column; align-items: flex-end; gap: 6px">
+<span style="font-size: 11px; color: #6B5D50">あなた</span>
+<div style="display: flex; align-items: center; gap: 10px">
+<div style="background: #F1E8DC; border-radius: 14px 4px 14px 14px; padding: 12px 16px; font-size: 14px">記念日、ふたりで2万円くらい。</div>
+<span style="width: 36px; height: 36px; border-radius: 50%; background: #F3ECE2; display: flex; align-items: center; justify-content: center" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#65452F" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+</div>
+</div>
+<div class="chat-ai-row" style="display: flex; gap: 10px; align-items: flex-start">
+<span style="flex: none; width: 40px; height: 40px; border-radius: 50%; background: #F3ECE2; display: flex; align-items: center; justify-content: center" aria-hidden="true"><svg width="22" height="14" viewBox="0 0 34 22" fill="none"><path d="M2 18h30M5 18c2-6 7-11 12-14 5 3 10 8 12 14M17 4v14" stroke="#996735" stroke-width="2" stroke-linecap="round"/></svg></span>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 11px; color: #6B5D50">トキナルAI</span>
+<div class="chat-stack">
+<span class="chat-typing" style="align-self: flex-start; display: flex; gap: 5px; padding: 10px 14px; background: #F6F1EA; border-radius: 999px" aria-hidden="true"><span class="chat-dot" style="width: 6px; height: 6px; border-radius: 50%; background: #B8AA98"></span><span class="chat-dot" style="width: 6px; height: 6px; border-radius: 50%; background: #B8AA98"></span><span class="chat-dot" style="width: 6px; height: 6px; border-radius: 50%; background: #B8AA98"></span></span>
+<div class="chat-message" style="background: #F6F1EA; border-radius: 4px 14px 14px 14px; padding: 12px 16px; font-size: 14px; line-height: 1.8">エリアと、お好みの雰囲気を<br>教えてください。<br>ご希望に合うお店をご提案します。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Voices -->
+<section style="max-width: 1280px; margin: 0 auto; padding: 72px 32px 0">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 0.25em; color: #996735"><span style="width: 32px; height: 1px; background: #996735" aria-hidden="true"></span>VOICE</p>
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 34px; font-weight: 600">「ここにしてよかった」の声</h2>
+</div>
+<a href="#" style="font-size: 13px; font-weight: 700; color: #342D26; border-bottom: 1px solid #342D26; padding-bottom: 4px; text-decoration: none">すべて見る ›</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 20px">
+
+<article class="reveal" style="background: #FFFFFF; border-radius: 12px; box-shadow: 0 4px 18px rgba(52,45,38,.06); padding: 20px; display: flex; gap: 24px; flex-wrap: wrap">
+<img src="tmp_images/tmp_interior.jpg" alt="" style="width: 180px; height: 150px; object-fit: cover; border-radius: 6px; flex: none">
+<div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 10px">
+<span style="align-self: flex-start; font-size: 11px; color: #65452F; background: #F3ECE2; padding: 4px 12px; border-radius: 999px">記念日</span>
+<p style="margin: 0; font-size: 13px; line-height: 1.9; color: #4A3F35">落ち着いた雰囲気で、料理も素晴らしく、一生の思い出になりました。お店選びに迷っていましたが、トキナルでぴったりの一軒に出会えました。</p>
+<p style="margin: 0; font-size: 12px; color: #6B5D50">30代・カップル</p>
+</div>
+</article>
+
+<article class="reveal" style="background: #FFFFFF; border-radius: 12px; box-shadow: 0 4px 18px rgba(52,45,38,.06); padding: 20px; display: flex; gap: 24px; flex-wrap: wrap">
+<img src="tmp_images/tmp_interior2.jpg" alt="" style="width: 180px; height: 150px; object-fit: cover; border-radius: 6px; flex: none">
+<div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 10px">
+<span style="align-self: flex-start; font-size: 11px; color: #65452F; background: #F3ECE2; padding: 4px 12px; border-radius: 999px">旅行</span>
+<p style="margin: 0; font-size: 13px; line-height: 1.9; color: #4A3F35">旅行先でのディナーに利用しました。現地ならではの雰囲気あるお店を提案してもらい、特別な時間を過ごせました。また旅の際に利用したいです。</p>
+<p style="margin: 0; font-size: 12px; color: #6B5D50">40代・夫婦</p>
+</div>
+</article>
+
+</div>
+<p style="margin: 12px 0 0; font-size: 11px; color: #6B5D50">※ 口コミはデザイン用の仮内容です</p>
+</section>
+
+<!-- Flow -->
+<section id="flow" style="max-width: 1280px; margin: 0 auto; padding: 64px 32px 0">
+<div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px">
+<p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 0.25em; color: #996735"><span style="width: 32px; height: 1px; background: #996735" aria-hidden="true"></span>HOW TO USE</p>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 20px">
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 34px; font-weight: 600">特別な一軒に出会うまで</h2>
+<p style="margin: 0; font-size: 13px; color: #5E5145">3つのステップで、簡単にお店を探せます。</p>
+</div>
+</div>
+<ol style="list-style: none; margin: 0; padding: 20px 24px; background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 18px rgba(52,45,38,.06); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px">
+
+<li class="reveal" style="display: flex; align-items: center; gap: 18px; padding: 8px 4px">
+<span style="font-family: 'Shippori Mincho', serif; font-size: 22px; color: #B39A7C">01</span>
+<span style="flex: none; width: 56px; height: 56px; border-radius: 50%; background: #F3ECE2; display: flex; align-items: center; justify-content: center" aria-hidden="true">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#65452F" stroke-width="1.6"><path d="M4 5h16v11H9l-5 4z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01" stroke-width="2.4" stroke-linecap="round"/></svg>
+
+
+</span>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<p style="margin: 0; font-size: 15px; font-weight: 700">好みを伝える</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.8; color: #5E5145">シーン・エリア・予算など希望を入力します。</p>
+</div>
+</li>
+
+<li class="reveal" style="display: flex; align-items: center; gap: 18px; padding: 8px 4px">
+<span style="font-family: 'Shippori Mincho', serif; font-size: 22px; color: #B39A7C">02</span>
+<span style="flex: none; width: 56px; height: 56px; border-radius: 50%; background: #F3ECE2; display: flex; align-items: center; justify-content: center" aria-hidden="true">
+
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#65452F" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m3 18 5-5 4 4 3-3 6 6"/></svg>
+
+</span>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<p style="margin: 0; font-size: 15px; font-weight: 700">写真と体験談で選ぶ</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.8; color: #5E5145">気になるお店を比較して、ぴったりの一軒を見つけます。</p>
+</div>
+</li>
+
+<li class="reveal" style="display: flex; align-items: center; gap: 18px; padding: 8px 4px">
+<span style="font-family: 'Shippori Mincho', serif; font-size: 22px; color: #B39A7C">03</span>
+<span style="flex: none; width: 56px; height: 56px; border-radius: 50%; background: #F3ECE2; display: flex; align-items: center; justify-content: center" aria-hidden="true">
+
+
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#65452F" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+</span>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<p style="margin: 0; font-size: 15px; font-weight: 700">空席を確認・予約</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.8; color: #5E5145">希望の日程で空席を確認し、そのまま予約できます。</p>
+</div>
+</li>
+
+</ol>
+</section>
+
+<!-- FAQ -->
+<section style="max-width: 1280px; margin: 0 auto; padding: 64px 32px 72px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 20px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 0.25em; color: #996735"><span style="width: 32px; height: 1px; background: #996735" aria-hidden="true"></span>FAQ</p>
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 34px; font-weight: 600">よくあるご質問</h2>
+</div>
+<a href="#" style="font-size: 13px; font-weight: 700; color: #342D26; border-bottom: 1px solid #342D26; padding-bottom: 4px; text-decoration: none">すべて見る ›</a>
+</div>
+<div class="reveal" style="background: #FFFFFF; border-radius: 12px; box-shadow: 0 4px 18px rgba(52,45,38,.06); padding: 4px 24px">
+
+<details style="border-bottom: 1px solid #EEE5D8; padding: 16px 0">
+<summary style="cursor: pointer; font-size: 14px; font-weight: 500; min-height: 24px">AIへの相談は無料ですか？</summary>
+<p style="margin: 12px 0 0; font-size: 13px; line-height: 1.85; color: #5E5145">はい、無料でご利用いただけます。</p>
+</details>
+
+<details style="border-bottom: 1px solid #EEE5D8; padding: 16px 0">
+<summary style="cursor: pointer; font-size: 14px; font-weight: 500; min-height: 24px">記念日以外にも利用できますか？</summary>
+<p style="margin: 12px 0 0; font-size: 13px; line-height: 1.85; color: #5E5145">デートや旅行、接待など、特別な食事のシーン全般でご利用いただけます。</p>
+</details>
+
+<details style="padding: 16px 0">
+<summary style="cursor: pointer; font-size: 14px; font-weight: 500; min-height: 24px">予約の変更・キャンセルはできますか？</summary>
+<p style="margin: 12px 0 0; font-size: 13px; line-height: 1.85; color: #5E5145">店舗ごとの規定に沿って、マイページから手続きいただけます。</p>
+</details>
+
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta-bg">
+<div style="max-width: 1280px; margin: 0 auto; padding: 64px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 38px; font-weight: 600; line-height: 1.45; color: #FCFAF6">次の特別な日を、<br>忘れられない一日に。</h2>
+<p style="margin: 0; font-size: 14px; line-height: 1.9; color: #EEE5D8">大切な人との時間を、もっと特別に。<br>トキナルが、心に残る一軒との出会いをお手伝いします。</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 14px">
+<a href="Concierge.html" class="btn-lift" style="display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 28px; border-radius: 10px; border: 1px solid rgba(252,250,246,.7); background: rgba(52,45,38,.45); color: #FCFAF6; text-decoration: none; font-weight: 700">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>一緒にお店を探す</a>
+<a href="#scene" class="btn-lift" style="display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 28px; border-radius: 10px; background: #8A5E36; color: #FCFAF6; text-decoration: none; font-weight: 700; border: 1px solid #B88A5A">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>お店を検索する</a>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer style="background: #FCFAF6; border-top: 1px solid #EEE5D8">
+<div style="max-width: 1280px; margin: 0 auto; padding: 32px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; align-items: center">
+<a href="Main.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #342D26">
+<svg width="36" height="22" viewBox="0 0 34 22" fill="none" aria-hidden="true"><path d="M2 18h30M5 18c2-6 7-11 12-14 5 3 10 8 12 14M17 4v14M10 18c1.5-4 4-7 7-9 3 2 5.5 5 7 9" stroke="#996735" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<span style="font-family: 'Shippori Mincho', serif; font-size: 24px; font-weight: 600; letter-spacing: 0.12em">トキナル</span>
+</a>
+<nav aria-label="フッターメニュー" style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 12px">
+<a href="#flow" style="color: #342D26; text-decoration: none">ご利用ガイド</a>
+<a href="#" style="color: #342D26; text-decoration: none">お問い合わせ</a>
+<a href="#" style="color: #342D26; text-decoration: none">利用規約</a>
+<a href="#" style="color: #342D26; text-decoration: none">プライバシーポリシー</a>
+<a href="#" style="color: #342D26; text-decoration: none">よくあるお問い合わせ</a>
+<a href="#" style="color: #342D26; text-decoration: none">サイトマップ</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 12px">
+<a href="#shops" style="display: flex; align-items: center; gap: 6px; color: #342D26; text-decoration: none; min-height: 44px; padding-right: 8px">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>お気に入り</a>
+<a href="#" aria-label="Instagram" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #342D26">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
+<a href="#" aria-label="X" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #342D26">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4l16 16M20 4 4 20"/></svg></a>
+</div>
+</div>
+<p style="margin: 0; padding: 0 32px 24px; text-align: center; font-size: 11px; color: #6B5D50">© TOKINARU</p>
+</footer>
+</div>
+</div>
+
+<div class="sp-view">
+<div style="width: 100%; max-width: 390px; min-height: 100vh; margin: 0 auto; font-family: 'Noto Sans JP', sans-serif; color: #342D26; background: #FCFAF6; position: relative">
+
+<!-- Header -->
+<header style="position: relative; z-index: 3; background: #FCFAF6; height: 60px; padding: 0 8px 0 18px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #EEE5D8">
+<a href="Main.html" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #342D26">
+<svg width="30" height="18" viewBox="0 0 34 22" fill="none" aria-hidden="true"><path d="M2 18h30M5 18c2-6 7-11 12-14 5 3 10 8 12 14M17 4v14M10 18c1.5-4 4-7 7-9 3 2 5.5 5 7 9" stroke="#996735" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<span style="font-family: 'Shippori Mincho', serif; font-size: 22px; font-weight: 600; letter-spacing: 0.12em">トキナル</span>
+</a>
+<div style="display: flex; align-items: center">
+<a href="#search" aria-label="検索" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #342D26">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></a>
+<a href="#shops-sp" aria-label="お気に入り" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #342D26">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></a>
+<button type="button" id="spMenuBtn" aria-label="メニューを開く" aria-expanded="false" style="width: 44px; height: 44px; border: 0; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #342D26">
+<svg data-icon="menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="display: block"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+<svg data-icon="close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="display: none"><path d="M5 5l14 14M19 5 5 19"/></svg>
+</button>
+</div>
+</header>
+
+<!-- Menu overlay -->
+<nav id="spMenuNav" aria-label="メインメニュー" style="display: flex; position: absolute; z-index: 2; top: 60px; left: 0; right: 0; background: #FCFAF6; border-bottom: 1px solid #EEE5D8; box-shadow: 0 12px 24px rgba(52,45,38,.12); padding: 16px 20px 24px; flex-direction: column">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding-bottom: 16px">
+<a href="#scene-sp" class="btn-lift" style="display: flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 8px; border-radius: 999px; background: #F3ECE2; text-decoration: none; color: #342D26; font-size: 14px; font-weight: 700">特別な日から探す</a>
+<a href="#shops-sp" class="btn-lift" style="display: flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 8px; border-radius: 999px; background: #F3ECE2; text-decoration: none; color: #342D26; font-size: 14px; font-weight: 700">エリアから探す</a>
+</div>
+<a href="#flow-sp" style="display: flex; align-items: center; justify-content: space-between; min-height: 56px; border-bottom: 1px solid #EEE5D8; text-decoration: none; color: #342D26; font-size: 15px">ご利用ガイド<span aria-hidden="true">›</span></a>
+<a href="ConciergeSP.html" style="display: flex; align-items: center; justify-content: space-between; min-height: 56px; border-bottom: 1px solid #EEE5D8; text-decoration: none; color: #342D26; font-size: 15px">AIに相談<span aria-hidden="true">›</span></a>
+<a href="#" style="display: flex; align-items: center; justify-content: space-between; min-height: 56px; border-bottom: 1px solid #EEE5D8; text-decoration: none; color: #342D26; font-size: 15px">お気に入り<span aria-hidden="true">›</span></a>
+<a href="#" style="display: flex; align-items: center; justify-content: space-between; min-height: 56px; border-bottom: 1px solid #EEE5D8; text-decoration: none; color: #342D26; font-size: 15px">閲覧履歴<span aria-hidden="true">›</span></a>
+<div style="margin-top: 20px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<a href="#" class="btn-lift" style="display: flex; align-items: center; justify-content: center; min-height: 48px; border: 1px solid #342D26; border-radius: 999px; text-decoration: none; color: #342D26; font-weight: 500">ログイン</a>
+<a href="#" class="btn-lift" style="display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 999px; background: #65452F; text-decoration: none; color: #FCFAF6; font-weight: 700">会員登録</a>
+</div>
+</nav>
+
+<!-- Hero -->
+<section class="hero-bg" style="padding: 40px 20px 96px; display: flex; flex-direction: column; gap: 18px">
+<h1 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 30px; line-height: 1.45; color: #FCFAF6; letter-spacing: 0.04em"><span style="white-space: nowrap">大切な日の一軒を、</span><br><span style="white-space: nowrap">迷いから確信へ。</span></h1>
+<p style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 15px; line-height: 1.9; color: #F3ECE2; font-weight: 500"><span style="white-space: nowrap">記念日も、旅先のディナーも。</span><br><span style="white-space: nowrap">あなたにぴったりのお店を、</span><br><span style="white-space: nowrap">一緒に見つけます。</span></p>
+<div class="js-hero-carousel" data-dot-active="18" data-dot-inactive="6" role="region" aria-roledescription="カルーセル" aria-label="特集" style="margin-top: 8px; position: relative; height: 300px; border-radius: 10px; overflow: hidden; box-shadow: 0 16px 36px rgba(0,0,0,.35); border: 1px solid rgba(252,250,246,.25); background: #342D26">
+<img data-role="image" src="tmp_images/tmp_toast.jpg" alt="グラスで乾杯するふたり" style="width: 100%; height: 100%; object-fit: cover; display: block">
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,20,14,.1) 0%, rgba(28,20,14,.3) 35%, rgba(28,20,14,.92) 100%)"></div>
+<span data-role="counter" style="position: absolute; left: 14px; top: 12px; font-size: 10px; letter-spacing: 0.2em; color: #FCFAF6">FEATURE　01 / 03</span>
+<div style="position: absolute; left: 16px; right: 16px; bottom: 10px; display: flex; flex-direction: column; gap: 6px; color: #FCFAF6">
+<span data-role="badge" style="align-self: flex-start; font-size: 10px; font-weight: 700; color: #342D26; background: rgba(252,250,246,.92); padding: 3px 10px; border-radius: 999px">記念日・誕生日特集</span>
+<p data-role="headline" style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 17px; font-weight: 600; line-height: 1.5; white-space: pre-line">保存30件、でも予約は0件。
+その記念日、もう迷わせない。</p>
+<p data-role="desc" style="margin: 0; font-size: 11px; line-height: 1.6; color: #EEE5D8">記念日に訪れたカップルの声をもとに、編集部が厳選した店舗だけを掲載。</p>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 4px">
+<div style="display: flex; gap: 2px">
+
+<button type="button" data-role="dot" data-index="0" aria-label="記念日・誕生日特集を表示" aria-pressed="true" style="width: 32px; height: 32px; border: 0; background: none; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer"><span style="display: block; width: 18px; height: 4px; border-radius: 2px; background: #FCFAF6"></span></button>
+
+<button type="button" data-role="dot" data-index="1" aria-label="旅先ディナー特集を表示" aria-pressed="false" style="width: 32px; height: 32px; border: 0; background: none; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer"><span style="display: block; width: 6px; height: 4px; border-radius: 2px; background: rgba(252,250,246,.5)"></span></button>
+
+<button type="button" data-role="dot" data-index="2" aria-label="デート特集を表示" aria-pressed="false" style="width: 32px; height: 32px; border: 0; background: none; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer"><span style="display: block; width: 6px; height: 4px; border-radius: 2px; background: rgba(252,250,246,.5)"></span></button>
+
+</div>
+<div style="display: flex; gap: 8px">
+<button type="button" data-role="prev" class="carousel-nav-btn" aria-label="前の特集" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(252,250,246,.7); background: rgba(40,28,20,.35); color: #FCFAF6; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
+<button type="button" data-role="next" class="carousel-nav-btn" aria-label="次の特集" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(252,250,246,.7); background: rgba(40,28,20,.35); color: #FCFAF6; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Search -->
+<section style="position: relative; margin-top: -64px; padding: 0 16px">
+<form id="search" aria-label="お店を検索" style="background: #FFFFFF; border-radius: 14px; box-shadow: 0 12px 32px rgba(52,45,38,.14); padding: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<div class="field" style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px">
+<label for="sarea" style="font-size: 12px; font-weight: 700">エリア</label>
+<div style="position: relative">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B5D50" stroke-width="1.8" aria-hidden="true" style="position: absolute; left: 12px; top: 15px"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+<select id="sarea" style="width: 100%; height: 46px; border: 0; border-radius: 8px; background: #F6F1EA; padding: 0 12px 0 36px; font: inherit; font-size: 14px; color: #5E5145"><option>エリア・駅名</option><option>銀座</option><option>表参道</option><option>みなとみらい</option><option>京都・祇園</option></select>
+</div>
+</div>
+<div class="field" style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px">
+<label for="skw" style="font-size: 12px; font-weight: 700">キーワード</label>
+<div style="position: relative">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B5D50" stroke-width="1.8" aria-hidden="true" style="position: absolute; left: 12px; top: 15px"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+<input id="skw" type="text" placeholder="記念日・個室など" style="width: 100%; height: 46px; border: 0; border-radius: 8px; background: #F6F1EA; padding: 0 12px 0 36px; font: inherit; font-size: 14px; box-sizing: border-box">
+</div>
+</div>
+<div class="field" style="display: flex; flex-direction: column; gap: 6px">
+<label for="sdate" style="font-size: 12px; font-weight: 700">日付</label>
+<select id="sdate" style="width: 100%; height: 46px; border: 0; border-radius: 8px; background: #F6F1EA; padding: 0 12px; font: inherit; font-size: 14px; color: #5E5145"><option>日付を選択</option><option>今日</option><option>明日</option><option>今週末</option></select>
+</div>
+<div class="field" style="display: flex; flex-direction: column; gap: 6px">
+<label for="stime" style="font-size: 12px; font-weight: 700">時間</label>
+<select id="stime" style="width: 100%; height: 46px; border: 0; border-radius: 8px; background: #F6F1EA; padding: 0 12px; font: inherit; font-size: 14px; color: #5E5145"><option>時間を選択</option><option>17:30</option><option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option></select>
+</div>
+<div class="field" style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px">
+<label for="sppl" style="font-size: 12px; font-weight: 700">人数</label>
+<select id="sppl" style="width: 100%; height: 46px; border: 0; border-radius: 8px; background: #F6F1EA; padding: 0 12px; font: inherit; font-size: 14px"><option>2名</option><option>1名</option><option>3名</option><option>4名</option><option>5名以上</option></select>
+</div>
+<button type="button" class="btn-lift" style="grid-column: 1 / -1; height: 50px; border: 0; border-radius: 8px; background: #7A5232; color: #FCFAF6; font: inherit; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>検索する</button>
+</form>
+
+<!-- AI banner -->
+<div style="margin-top: 14px; background: #F1E8DC; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#65452F" stroke-width="1.4" aria-hidden="true"><path d="M4 5h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><circle cx="7" cy="10.5" r=".8" fill="#65452F"/><circle cx="10" cy="10.5" r=".8" fill="#65452F"/><circle cx="13" cy="10.5" r=".8" fill="#65452F"/><path d="M21 2v3M19.5 3.5h3"/></svg>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<p style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 21px; font-weight: 600">迷ったら、AIに相談。</p>
+<p style="margin: 0; font-size: 12px; color: #5E5145">好みや予算を伝えて、ぴったりの一軒へ。</p>
+</div>
+</div>
+<a href="ConciergeSP.html" class="btn-lift" style="display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; border-radius: 8px; background: #5A3C26; color: #FCFAF6; text-decoration: none; font-weight: 700; font-size: 14px">一緒にお店を探す ›</a>
+</div>
+</section>
+
+<!-- Scenes -->
+<section id="scene-sp" style="padding: 56px 0 0">
+<div style="padding: 0 20px; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 8px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; display: flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: 0.25em; color: #996735"><span style="width: 24px; height: 1px; background: #996735" aria-hidden="true"></span>SPECIAL SCENE</p>
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 25px; font-weight: 600">特別な時間から、探す</h2>
+</div>
+<a href="#shops-sp" style="font-size: 12px; font-weight: 700; color: #342D26; white-space: nowrap; padding-bottom: 4px">すべて見る ›</a>
+</div>
+<p style="margin: 0 0 16px; padding: 0 20px; font-size: 12px; color: #5E5145">シーンに合わせたお店をご紹介します。</p>
+<div class="hscroll" style="display: flex; gap: 12px; overflow-x: auto; padding: 0 20px 4px; scroll-snap-type: x mandatory">
+
+<a href="ConciergeSP.html" class="reveal" style="flex: none; width: 290px; height: 180px; position: relative; border-radius: 10px; overflow: hidden; background: #342D26; scroll-snap-align: start; text-decoration: none">
+<img src="tmp_images/tmp_toast.jpg" alt="グラスで乾杯するふたり" style="width: 100%; height: 100%; object-fit: cover; display: block">
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,20,14,.15) 0%, rgba(28,20,14,.4) 40%, rgba(28,20,14,.9) 100%)"></div>
+<span style="position: absolute; left: 14px; top: 12px; font-size: 10px; font-weight: 700; color: #342D26; background: rgba(252,250,246,.92); padding: 4px 10px; border-radius: 999px">ANNIVERSARY</span>
+<div style="position: absolute; left: 16px; right: 16px; bottom: 14px; display: flex; flex-direction: column; gap: 6px; color: #FCFAF6">
+<p style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 19px; font-weight: 600; line-height: 1.5">記念日・誕生日</p>
+<p style="margin: 0; font-size: 11px; line-height: 1.6; color: #EEE5D8">大切な人と、忘れられない一日を。</p>
+</div>
+</a>
+
+<a href="ConciergeSP.html" class="reveal" style="flex: none; width: 290px; height: 180px; position: relative; border-radius: 10px; overflow: hidden; background: #342D26; scroll-snap-align: start; text-decoration: none">
+<img src="tmp_images/tmp_dish.jpg" alt="シェフが料理にソースをかける手元" style="width: 100%; height: 100%; object-fit: cover; display: block">
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,20,14,.15) 0%, rgba(28,20,14,.4) 40%, rgba(28,20,14,.9) 100%)"></div>
+<span style="position: absolute; left: 14px; top: 12px; font-size: 10px; font-weight: 700; color: #342D26; background: rgba(252,250,246,.92); padding: 4px 10px; border-radius: 999px">TRAVEL</span>
+<div style="position: absolute; left: 16px; right: 16px; bottom: 14px; display: flex; flex-direction: column; gap: 6px; color: #FCFAF6">
+<p style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 19px; font-weight: 600; line-height: 1.5">旅先のディナー</p>
+<p style="margin: 0; font-size: 11px; line-height: 1.6; color: #EEE5D8">その土地で出会う、特別な味わい。</p>
+</div>
+</a>
+
+<a href="ConciergeSP.html" class="reveal" style="flex: none; width: 290px; height: 180px; position: relative; border-radius: 10px; overflow: hidden; background: #342D26; scroll-snap-align: start; text-decoration: none">
+<img src="tmp_images/tmp_interior2.jpg" alt="照明の落ち着いた店内" style="width: 100%; height: 100%; object-fit: cover; display: block">
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,20,14,.15) 0%, rgba(28,20,14,.4) 40%, rgba(28,20,14,.9) 100%)"></div>
+<span style="position: absolute; left: 14px; top: 12px; font-size: 10px; font-weight: 700; color: #342D26; background: rgba(252,250,246,.92); padding: 4px 10px; border-radius: 999px">DATE</span>
+<div style="position: absolute; left: 16px; right: 16px; bottom: 14px; display: flex; flex-direction: column; gap: 6px; color: #FCFAF6">
+<p style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 19px; font-weight: 600; line-height: 1.5">ふたりのデート</p>
+<p style="margin: 0; font-size: 11px; line-height: 1.6; color: #EEE5D8">心地よい雰囲気が、ふたりを近づける。</p>
+</div>
+</a>
+
+</div>
+</section>
+
+<!-- Shops -->
+<section id="shops-sp" style="padding: 56px 20px 0">
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 8px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; display: flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: 0.25em; color: #996735"><span style="width: 24px; height: 1px; background: #996735" aria-hidden="true"></span>PICK UP</p>
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 25px; font-weight: 600">大切な日に選びたいお店</h2>
+</div>
+</div>
+<p style="margin: 0 0 16px; font-size: 12px; color: #5E5145">特別なひとときにふさわしい、とっておきのお店。</p>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+
+<div class="reveal shop-card" style="position: relative; background: #FFFFFF; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 14px rgba(52,45,38,.07)">
+<a href="DetailSP.html" style="display: flex; flex-direction: column; text-decoration: none; color: #342D26">
+<img src="tmp_images/tmp_interior.jpg" alt="銀座 旬和の店内・料理イメージ" style="width: 100%; height: 120px; object-fit: cover; display: block">
+<div style="padding: 12px; display: flex; flex-direction: column; gap: 4px">
+<p style="margin: 0; font-size: 11px"><span style="color: #B07A2E" aria-hidden="true">★</span> <strong>4.6</strong> <span style="color: #6B5D50">（128件）</span></p>
+<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 15px; font-weight: 600; line-height: 1.4">銀座 旬和</h3>
+<p style="margin: 0; font-size: 11px; line-height: 1.5; color: #5E5145">季節の会席を、静かな個室で。</p>
+<p style="margin: 0; font-size: 10px; color: #6B5D50">銀座駅 徒歩3分</p>
+<div style="display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px">
+
+<span style="font-size: 10px; color: #5E5145; background: #F3ECE2; padding: 3px 8px; border-radius: 999px">和食</span>
+
+<span style="font-size: 10px; color: #5E5145; background: #F3ECE2; padding: 3px 8px; border-radius: 999px">個室あり</span>
+
+</div>
+<p style="margin: 6px 0 0; padding-top: 6px; border-top: 1px solid #EEE5D8; font-size: 11px; line-height: 1.7"><span style="color: #6B5D50">昼</span> ¥6,000〜<br><span style="color: #6B5D50">夜</span> ¥15,000〜</p>
+</div>
+</a>
+<button type="button" class="fav-btn" aria-label="銀座 旬和をお気に入りに追加" style="position: absolute; right: 2px; top: 2px; width: 44px; height: 44px; border: 0; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FCFAF6" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+</div>
+
+<div class="reveal shop-card" style="position: relative; background: #FFFFFF; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 14px rgba(52,45,38,.07)">
+<a href="DetailSP.html" style="display: flex; flex-direction: column; text-decoration: none; color: #342D26">
+<img src="tmp_images/tmp_dish.jpg" alt="青山ル・ボワの店内・料理イメージ" style="width: 100%; height: 120px; object-fit: cover; display: block">
+<div style="padding: 12px; display: flex; flex-direction: column; gap: 4px">
+<p style="margin: 0; font-size: 11px"><span style="color: #B07A2E" aria-hidden="true">★</span> <strong>4.5</strong> <span style="color: #6B5D50">（96件）</span></p>
+<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 15px; font-weight: 600; line-height: 1.4">青山ル・ボワ</h3>
+<p style="margin: 0; font-size: 11px; line-height: 1.5; color: #5E5145">記念日コースが人気のフレンチ。</p>
+<p style="margin: 0; font-size: 10px; color: #6B5D50">表参道駅 徒歩5分</p>
+<div style="display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px">
+
+<span style="font-size: 10px; color: #5E5145; background: #F3ECE2; padding: 3px 8px; border-radius: 999px">フレンチ</span>
+
+<span style="font-size: 10px; color: #5E5145; background: #F3ECE2; padding: 3px 8px; border-radius: 999px">記念日</span>
+
+</div>
+<p style="margin: 6px 0 0; padding-top: 6px; border-top: 1px solid #EEE5D8; font-size: 11px; line-height: 1.7"><span style="color: #6B5D50">昼</span> ¥4,500〜<br><span style="color: #6B5D50">夜</span> ¥12,000〜</p>
+</div>
+</a>
+<button type="button" class="fav-btn" aria-label="青山ル・ボワをお気に入りに追加" style="position: absolute; right: 2px; top: 2px; width: 44px; height: 44px; border: 0; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FCFAF6" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+</div>
+
+<div class="reveal shop-card" style="position: relative; background: #FFFFFF; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 14px rgba(52,45,38,.07)">
+<a href="DetailSP.html" style="display: flex; flex-direction: column; text-decoration: none; color: #342D26">
+<img src="tmp_images/tmp_interior2.jpg" alt="朧月（ちょうげつ）の店内・料理イメージ" style="width: 100%; height: 120px; object-fit: cover; display: block">
+<div style="padding: 12px; display: flex; flex-direction: column; gap: 4px">
+<p style="margin: 0; font-size: 11px"><span style="color: #B07A2E" aria-hidden="true">★</span> <strong>4.4</strong> <span style="color: #6B5D50">（74件）</span></p>
+<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 15px; font-weight: 600; line-height: 1.4">朧月（ちょうげつ）</h3>
+<p style="margin: 0; font-size: 11px; line-height: 1.5; color: #5E5145">港の夜景を望む窓際の席。</p>
+<p style="margin: 0; font-size: 10px; color: #6B5D50">みなとみらい駅 徒歩4分</p>
+<div style="display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px">
+
+<span style="font-size: 10px; color: #5E5145; background: #F3ECE2; padding: 3px 8px; border-radius: 999px">イタリアン</span>
+
+<span style="font-size: 10px; color: #5E5145; background: #F3ECE2; padding: 3px 8px; border-radius: 999px">夜景</span>
+
+</div>
+<p style="margin: 6px 0 0; padding-top: 6px; border-top: 1px solid #EEE5D8; font-size: 11px; line-height: 1.7"><span style="color: #6B5D50">昼</span> ¥3,800〜<br><span style="color: #6B5D50">夜</span> ¥10,000〜</p>
+</div>
+</a>
+<button type="button" class="fav-btn" aria-label="朧月（ちょうげつ）をお気に入りに追加" style="position: absolute; right: 2px; top: 2px; width: 44px; height: 44px; border: 0; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FCFAF6" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+</div>
+
+<div class="reveal shop-card" style="position: relative; background: #FFFFFF; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 14px rgba(52,45,38,.07)">
+<a href="DetailSP.html" style="display: flex; flex-direction: column; text-decoration: none; color: #342D26">
+<img src="tmp_images/tmp_toast.jpg" alt="京都 霞庭（かすみにわ）の店内・料理イメージ" style="width: 100%; height: 120px; object-fit: cover; display: block">
+<div style="padding: 12px; display: flex; flex-direction: column; gap: 4px">
+<p style="margin: 0; font-size: 11px"><span style="color: #B07A2E" aria-hidden="true">★</span> <strong>4.7</strong> <span style="color: #6B5D50">（152件）</span></p>
+<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 15px; font-weight: 600; line-height: 1.4">京都 霞庭（かすみにわ）</h3>
+<p style="margin: 0; font-size: 11px; line-height: 1.5; color: #5E5145">庭を眺める座敷で京の懐石を。</p>
+<p style="margin: 0; font-size: 10px; color: #6B5D50">祇園四条駅 徒歩6分</p>
+<div style="display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px">
+
+<span style="font-size: 10px; color: #5E5145; background: #F3ECE2; padding: 3px 8px; border-radius: 999px">懐石・会席</span>
+
+<span style="font-size: 10px; color: #5E5145; background: #F3ECE2; padding: 3px 8px; border-radius: 999px">個室あり</span>
+
+</div>
+<p style="margin: 6px 0 0; padding-top: 6px; border-top: 1px solid #EEE5D8; font-size: 11px; line-height: 1.7"><span style="color: #6B5D50">昼</span> ¥8,000〜<br><span style="color: #6B5D50">夜</span> ¥18,000〜</p>
+</div>
+</a>
+<button type="button" class="fav-btn" aria-label="京都 霞庭（かすみにわ）をお気に入りに追加" style="position: absolute; right: 2px; top: 2px; width: 44px; height: 44px; border: 0; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FCFAF6" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+</div>
+
+</div>
+<a href="#shops-sp" class="btn-lift" style="margin-top: 20px; display: flex; align-items: center; justify-content: center; min-height: 48px; border: 1px solid #342D26; border-radius: 8px; text-decoration: none; color: #342D26; font-size: 14px; font-weight: 500">お店をもっと見る</a>
+<p style="margin: 10px 0 0; font-size: 10px; color: #6B5D50">※ 店舗名・価格・評価は画面デザイン用のサンプルです</p>
+</section>
+
+<!-- About -->
+<section style="margin-top: 56px; background: #F8F3EC; padding-bottom: 40px">
+<div style="padding: 40px 20px 24px; display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; display: flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: 0.25em; color: #996735"><span style="width: 24px; height: 1px; background: #996735" aria-hidden="true"></span>ABOUT</p>
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 27px; font-weight: 600; line-height: 1.5">お店の空気感まで、<br>予約の前に。</h2>
+<p style="margin: 0; font-size: 13px; line-height: 1.95; color: #5E5145">写真・雰囲気・体験談から、お店のリアルな魅力を知ることができます。大切な日だからこそ、安心して選べるように。</p>
+</div>
+<img src="tmp_images/tmp_interior2.jpg" alt="キャンドルが灯る落ち着いた店内" style="width: 100%; height: 220px; object-fit: cover; display: block">
+<div style="margin: -28px 16px 0; position: relative; background: #FFFFFF; border-radius: 14px; box-shadow: 0 8px 24px rgba(52,45,38,.08); padding: 8px 18px; display: flex; flex-direction: column">
+
+<div class="reveal" style="display: flex; gap: 14px; align-items: center; padding: 14px 0;">
+<span style="flex: none; width: 48px; height: 48px; border-radius: 50%; background: #F3ECE2; display: flex; align-items: center; justify-content: center" aria-hidden="true">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#65452F" stroke-width="1.6"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
+
+
+</span>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<p style="margin: 0; font-weight: 700; font-size: 14px">照明・席間・BGMがわかる</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.75; color: #5E5145">写真じゃ伝わらない情報を「雰囲気タグ」で確認できます。</p>
+</div>
+</div>
+
+<div class="reveal" style="display: flex; gap: 14px; align-items: center; padding: 14px 0; border-top: 1px solid #EEE5D8">
+<span style="flex: none; width: 48px; height: 48px; border-radius: 50%; background: #F3ECE2; display: flex; align-items: center; justify-content: center" aria-hidden="true">
+
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#65452F" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
+
+</span>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<p style="margin: 0; font-weight: 700; font-size: 14px">同じシーンの体験談が読める</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.75; color: #5E5145">実際に訪れた人の感想から、利用シーンのイメージが膨らみます。</p>
+</div>
+</div>
+
+<div class="reveal" style="display: flex; gap: 14px; align-items: center; padding: 14px 0; border-top: 1px solid #EEE5D8">
+<span style="flex: none; width: 48px; height: 48px; border-radius: 50%; background: #F3ECE2; display: flex; align-items: center; justify-content: center" aria-hidden="true">
+
+
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#65452F" stroke-width="1.6"><path d="M4 5h16v11H9l-5 4z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01" stroke-width="2.4" stroke-linecap="round"/></svg>
+</span>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<p style="margin: 0; font-weight: 700; font-size: 14px">好みを伝えて相談できる</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.75; color: #5E5145">AIに希望を伝えて、ぴったりの一軒を提案してもらえます。</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- AI concierge -->
+<section style="background: #F1E8DC; padding: 48px 20px; display: flex; flex-direction: column; gap: 18px">
+<p style="margin: 0; display: flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: 0.25em; color: #996735"><span style="width: 24px; height: 1px; background: #996735" aria-hidden="true"></span>AI CONCIERGE</p>
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 27px; font-weight: 600; line-height: 1.5">その迷い、<br>一緒にほどきます。</h2>
+<p style="margin: 0; font-size: 13px; line-height: 1.9; color: #5E5145">トキナルのAIコンシェルジュが、あなたの大切な日にぴったりのお店探しをお手伝いします。</p>
+<div style="background: #FFFFFF; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 6px 20px rgba(52,45,38,.08)" aria-label="相談のイメージ">
+<div style="align-self: flex-end; background: #F1E8DC; border-radius: 14px 4px 14px 14px; padding: 10px 14px; font-size: 13px">記念日、ふたりで2万円くらい。</div>
+<div style="display: flex; gap: 8px; align-items: flex-start">
+<span style="flex: none; width: 34px; height: 34px; border-radius: 50%; background: #F3ECE2; display: flex; align-items: center; justify-content: center" aria-hidden="true"><svg width="18" height="12" viewBox="0 0 34 22" fill="none"><path d="M2 18h30M5 18c2-6 7-11 12-14 5 3 10 8 12 14M17 4v14" stroke="#996735" stroke-width="2" stroke-linecap="round"/></svg></span>
+<div style="background: #F6F1EA; border-radius: 4px 14px 14px 14px; padding: 10px 14px; font-size: 13px; line-height: 1.8">エリアと、お好みの雰囲気を教えてください。ご希望に合うお店をご提案します。</div>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<a href="ConciergeSP.html" class="btn-lift" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; padding: 0 14px; border-radius: 999px; background: #FCFAF6; color: #342D26; text-decoration: none">記念日のお店を探したい</a>
+<a href="ConciergeSP.html" class="btn-lift" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; padding: 0 14px; border-radius: 999px; background: #FCFAF6; color: #342D26; text-decoration: none">静かな個室がいい</a>
+<a href="ConciergeSP.html" class="btn-lift" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; padding: 0 14px; border-radius: 999px; background: #FCFAF6; color: #342D26; text-decoration: none">予算から相談したい</a>
+</div>
+<a href="ConciergeSP.html" class="btn-lift" style="display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; border-radius: 10px; background: #5A3C26; color: #FCFAF6; text-decoration: none; font-weight: 700; font-size: 15px">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>AIに相談してみる ›</a>
+</section>
+
+<!-- Voices -->
+<section style="padding: 56px 20px 0">
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 16px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; display: flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: 0.25em; color: #996735"><span style="width: 24px; height: 1px; background: #996735" aria-hidden="true"></span>VOICE</p>
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 23px; font-weight: 600">「ここにしてよかった」の声</h2>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px">
+
+<article class="reveal" style="background: #FFFFFF; border-radius: 12px; box-shadow: 0 4px 14px rgba(52,45,38,.06); padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; gap: 14px; align-items: center">
+<img src="tmp_images/tmp_interior.jpg" alt="" style="width: 96px; height: 80px; object-fit: cover; border-radius: 6px; flex: none">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="align-self: flex-start; font-size: 11px; color: #65452F; background: #F3ECE2; padding: 3px 10px; border-radius: 999px">記念日</span>
+<p style="margin: 0; font-size: 12px; color: #6B5D50">30代・カップル</p>
+</div>
+</div>
+<p style="margin: 0; font-size: 13px; line-height: 1.9; color: #4A3F35">落ち着いた雰囲気で、料理も素晴らしく、一生の思い出になりました。お店選びに迷っていましたが、トキナルでぴったりの一軒に出会えました。</p>
+</article>
+
+<article class="reveal" style="background: #FFFFFF; border-radius: 12px; box-shadow: 0 4px 14px rgba(52,45,38,.06); padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; gap: 14px; align-items: center">
+<img src="tmp_images/tmp_interior2.jpg" alt="" style="width: 96px; height: 80px; object-fit: cover; border-radius: 6px; flex: none">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="align-self: flex-start; font-size: 11px; color: #65452F; background: #F3ECE2; padding: 3px 10px; border-radius: 999px">旅行</span>
+<p style="margin: 0; font-size: 12px; color: #6B5D50">40代・夫婦</p>
+</div>
+</div>
+<p style="margin: 0; font-size: 13px; line-height: 1.9; color: #4A3F35">旅行先でのディナーに利用しました。現地ならではの雰囲気あるお店を提案してもらい、特別な時間を過ごせました。また旅の際に利用したいです。</p>
+</article>
+
+</div>
+<p style="margin: 10px 0 0; font-size: 10px; color: #6B5D50">※ 口コミはデザイン用の仮内容です</p>
+</section>
+
+<!-- Flow -->
+<section id="flow-sp" style="padding: 56px 20px 0">
+<div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px">
+<p style="margin: 0; display: flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: 0.25em; color: #996735"><span style="width: 24px; height: 1px; background: #996735" aria-hidden="true"></span>HOW TO USE</p>
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 25px; font-weight: 600">特別な一軒に出会うまで</h2>
+<p style="margin: 0; font-size: 12px; color: #5E5145">3つのステップで、簡単にお店を探せます。</p>
+</div>
+<ol style="list-style: none; margin: 0; padding: 4px 16px; background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 14px rgba(52,45,38,.06); display: flex; flex-direction: column">
+
+<li class="reveal" style="display: flex; gap: 14px; align-items: center; padding: 14px 0;">
+<span style="font-family: 'Shippori Mincho', serif; font-size: 18px; color: #B39A7C; width: 24px">01</span>
+<span style="flex: none; width: 46px; height: 46px; border-radius: 50%; background: #F3ECE2; display: flex; align-items: center; justify-content: center" aria-hidden="true">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#65452F" stroke-width="1.6"><path d="M4 5h16v11H9l-5 4z"/></svg>
+
+
+</span>
+<div style="display: flex; flex-direction: column; gap: 3px">
+<p style="margin: 0; font-size: 14px; font-weight: 700">好みを伝える</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.7; color: #5E5145">シーン・エリア・予算など希望を入力します。</p>
+</div>
+</li>
+
+<li class="reveal" style="display: flex; gap: 14px; align-items: center; padding: 14px 0; border-top: 1px solid #EEE5D8">
+<span style="font-family: 'Shippori Mincho', serif; font-size: 18px; color: #B39A7C; width: 24px">02</span>
+<span style="flex: none; width: 46px; height: 46px; border-radius: 50%; background: #F3ECE2; display: flex; align-items: center; justify-content: center" aria-hidden="true">
+
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#65452F" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m3 18 5-5 4 4 3-3 6 6"/></svg>
+
+</span>
+<div style="display: flex; flex-direction: column; gap: 3px">
+<p style="margin: 0; font-size: 14px; font-weight: 700">写真と体験談で選ぶ</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.7; color: #5E5145">気になるお店を比較して、ぴったりの一軒を見つけます。</p>
+</div>
+</li>
+
+<li class="reveal" style="display: flex; gap: 14px; align-items: center; padding: 14px 0; border-top: 1px solid #EEE5D8">
+<span style="font-family: 'Shippori Mincho', serif; font-size: 18px; color: #B39A7C; width: 24px">03</span>
+<span style="flex: none; width: 46px; height: 46px; border-radius: 50%; background: #F3ECE2; display: flex; align-items: center; justify-content: center" aria-hidden="true">
+
+
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#65452F" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+</span>
+<div style="display: flex; flex-direction: column; gap: 3px">
+<p style="margin: 0; font-size: 14px; font-weight: 700">空席を確認・予約</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.7; color: #5E5145">希望の日程で空席を確認し、そのまま予約できます。</p>
+</div>
+</li>
+
+</ol>
+</section>
+
+<!-- FAQ -->
+<section style="padding: 56px 20px 56px">
+<div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px">
+<p style="margin: 0; display: flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: 0.25em; color: #996735"><span style="width: 24px; height: 1px; background: #996735" aria-hidden="true"></span>FAQ</p>
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 25px; font-weight: 600">よくあるご質問</h2>
+</div>
+<div class="reveal" style="background: #FFFFFF; border-radius: 12px; box-shadow: 0 4px 14px rgba(52,45,38,.06); padding: 0 16px">
+
+<details style="padding: 16px 0;">
+<summary style="cursor: pointer; font-size: 13px; font-weight: 500; min-height: 24px; line-height: 1.7">AIへの相談は無料ですか？</summary>
+<p style="margin: 10px 0 0; font-size: 12px; line-height: 1.85; color: #5E5145">はい、無料でご利用いただけます。</p>
+</details>
+
+<details style="padding: 16px 0; border-top: 1px solid #EEE5D8">
+<summary style="cursor: pointer; font-size: 13px; font-weight: 500; min-height: 24px; line-height: 1.7">記念日以外にも利用できますか？</summary>
+<p style="margin: 10px 0 0; font-size: 12px; line-height: 1.85; color: #5E5145">デートや旅行、接待など、特別な食事のシーン全般でご利用いただけます。</p>
+</details>
+
+<details style="padding: 16px 0; border-top: 1px solid #EEE5D8">
+<summary style="cursor: pointer; font-size: 13px; font-weight: 500; min-height: 24px; line-height: 1.7">予約の変更・キャンセルはできますか？</summary>
+<p style="margin: 10px 0 0; font-size: 12px; line-height: 1.85; color: #5E5145">店舗ごとの規定に沿って、マイページから手続きいただけます。</p>
+</details>
+
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta-bg" style="padding: 56px 20px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-size: 28px; font-weight: 600; line-height: 1.5; color: #FCFAF6">次の特別な日を、<br>忘れられない一日に。</h2>
+<p style="margin: 0; font-size: 13px; line-height: 1.9; color: #EEE5D8">大切な人との時間を、もっと特別に。トキナルが、心に残る一軒との出会いをお手伝いします。</p>
+<div style="margin-top: 8px; display: flex; flex-direction: column; gap: 12px">
+<a href="#scene-sp" class="btn-lift" style="display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; border-radius: 10px; background: #8A5E36; color: #FCFAF6; text-decoration: none; font-weight: 700; border: 1px solid #B88A5A">お店を検索する</a>
+<a href="ConciergeSP.html" class="btn-lift" style="display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; border-radius: 10px; border: 1px solid rgba(252,250,246,.7); background: rgba(52,45,38,.45); color: #FCFAF6; text-decoration: none; font-weight: 700">一緒にお店を探す</a>
+</div>
+</section>
+
+<!-- Footer -->
+<footer style="padding: 32px 20px 40px; display: flex; flex-direction: column; align-items: center; gap: 20px; border-top: 1px solid #EEE5D8">
+<a href="Main.html" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #342D26">
+<svg width="30" height="18" viewBox="0 0 34 22" fill="none" aria-hidden="true"><path d="M2 18h30M5 18c2-6 7-11 12-14 5 3 10 8 12 14M17 4v14M10 18c1.5-4 4-7 7-9 3 2 5.5 5 7 9" stroke="#996735" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<span style="font-family: 'Shippori Mincho', serif; font-size: 22px; font-weight: 600; letter-spacing: 0.12em">トキナル</span>
+</a>
+<nav aria-label="フッターメニュー" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 24px; font-size: 12px; text-align: center">
+<a href="#flow-sp" style="color: #342D26; text-decoration: none; min-height: 40px; display: flex; align-items: center; justify-content: center">ご利用ガイド</a>
+<a href="#" style="color: #342D26; text-decoration: none; min-height: 40px; display: flex; align-items: center; justify-content: center">お問い合わせ</a>
+<a href="#" style="color: #342D26; text-decoration: none; min-height: 40px; display: flex; align-items: center; justify-content: center">利用規約</a>
+<a href="#" style="color: #342D26; text-decoration: none; min-height: 40px; display: flex; align-items: center; justify-content: center">プライバシーポリシー</a>
+<a href="#" style="color: #342D26; text-decoration: none; min-height: 40px; display: flex; align-items: center; justify-content: center">よくあるお問い合わせ</a>
+<a href="#" style="color: #342D26; text-decoration: none; min-height: 40px; display: flex; align-items: center; justify-content: center">サイトマップ</a>
+</nav>
+<div style="display: flex; gap: 8px">
+<a href="#" aria-label="Instagram" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #342D26"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
+<a href="#" aria-label="X" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #342D26"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4l16 16M20 4 4 20"/></svg></a>
+</div>
+<p style="margin: 0; font-size: 11px; color: #6B5D50">© TOKINARU</p>
+</footer>
+</div>
+</div>
+
+<script>
+(function(){
+  var slides = [
+    {img:'tmp_images/tmp_toast.jpg', alt:'グラスで乾杯するふたり', badge:'記念日・誕生日特集', headline:'保存30件、でも予約は0件。\nその記念日、もう迷わせない。', desc:'記念日に訪れたカップルの声をもとに、編集部が厳選した店舗だけを掲載。'},
+    {img:'tmp_images/tmp_dish.jpg', alt:'シェフが料理にソースをかける手元', badge:'旅先ディナー特集', headline:'次の旅先は、行き先より\n「どこで食べるか」から選ぶ。', desc:'現地の人に愛される一軒を、雰囲気タグと体験談から選べます。'},
+    {img:'tmp_images/tmp_interior2.jpg', alt:'照明の落ち着いた店内', badge:'デート特集', headline:'次のデートは、\n会話が弾むお店で。', desc:'照明・席間・BGMまでわかるから、安心して誘えます。'}
+  ];
+
+  document.querySelectorAll('.js-hero-carousel').forEach(function(root){
+    var idx = 0;
+    var activeW = root.getAttribute('data-dot-active') || '22';
+    var inactiveW = root.getAttribute('data-dot-inactive') || '8';
+    var img = root.querySelector('[data-role="image"]');
+    var counter = root.querySelector('[data-role="counter"]');
+    var badge = root.querySelector('[data-role="badge"]');
+    var headline = root.querySelector('[data-role="headline"]');
+    var desc = root.querySelector('[data-role="desc"]');
+    var dots = root.querySelectorAll('[data-role="dot"]');
+    var prevBtn = root.querySelector('[data-role="prev"]');
+    var nextBtn = root.querySelector('[data-role="next"]');
+
+    var fadeEls = [img, counter, badge, headline, desc];
+
+    function applyContent(){
+      var s = slides[idx];
+      img.src = s.img;
+      img.alt = s.alt;
+      counter.textContent = 'FEATURE　' + String(idx + 1).padStart(2, '0') + ' / 03';
+      badge.textContent = s.badge;
+      headline.textContent = s.headline;
+      desc.textContent = s.desc;
+      fadeEls.forEach(function(el){ el.style.opacity = '1'; });
+    }
+
+    function render(animate){
+      dots.forEach(function(d, i){
+        var on = i === idx;
+        d.setAttribute('aria-pressed', on ? 'true' : 'false');
+        var bar = d.querySelector('span');
+        bar.style.width = on ? (activeW + 'px') : (inactiveW + 'px');
+        bar.style.background = on ? '#FCFAF6' : 'rgba(252,250,246,.5)';
+      });
+      if(animate){
+        fadeEls.forEach(function(el){ el.style.opacity = '0'; });
+        setTimeout(applyContent, 220);
+      } else {
+        applyContent();
+      }
+    }
+    dots.forEach(function(d, i){
+      d.addEventListener('click', function(){ idx = i; render(true); });
+    });
+    if(prevBtn) prevBtn.addEventListener('click', function(){ idx = (idx + slides.length - 1) % slides.length; render(true); });
+    if(nextBtn) nextBtn.addEventListener('click', function(){ idx = (idx + 1) % slides.length; render(true); });
+  });
+
+  var menuBtn = document.getElementById('spMenuBtn');
+  var menuNav = document.getElementById('spMenuNav');
+  if(menuBtn && menuNav){
+    var iconMenu = menuBtn.querySelector('[data-icon="menu"]');
+    var iconClose = menuBtn.querySelector('[data-icon="close"]');
+    menuBtn.addEventListener('click', function(){
+      var willOpen = !menuNav.classList.contains('is-open');
+      menuNav.classList.toggle('is-open', willOpen);
+      menuBtn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      menuBtn.setAttribute('aria-label', willOpen ? 'メニューを閉じる' : 'メニューを開く');
+      if(iconMenu) iconMenu.style.display = willOpen ? 'none' : 'block';
+      if(iconClose) iconClose.style.display = willOpen ? 'block' : 'none';
+    });
+  }
+
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.15, rootMargin: '0px 0px -40px 0px'});
+    revealEls.forEach(function(el, i){
+      el.style.transitionDelay = (Math.min(i % 4, 3) * 0.08) + 's';
+      io.observe(el);
+    });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+})();
+</script>
+
+</body>
+</html>
